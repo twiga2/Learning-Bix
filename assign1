@@ -1,0 +1,6 @@
+#!bin/bash
+clear
+grep '>' nrf1_seq.fa >headersnrf.fa
+cut -d' ' -f2,3 headersnrf.fa |sort |grep -Ev 'PREDICTED:' >final.fa
+grep 'PREDICTED:' headersnrf.fa |cut -d' ' -f3,4 |sort >>final.fa
+sort final.fa |uniq |wc -l
